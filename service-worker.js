@@ -3,7 +3,7 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox
 
 workbox.setConfig({ debug: true });
 workbox.googleAnalytics.initialize();
-workbox.core.setCacheNameDetails({ prefix: 'DoFIFO' });
+workbox.core.setCacheNameDetails({ prefix: 'test' });
 
 
 workbox.routing.setDefaultHandler(
@@ -15,7 +15,7 @@ workbox.routing.setCatchHandler(({event}) =>
 {
     if(event.request.destination === 'document')
     {
-        return caches.match('/offline');
+        return caches.match('/offline.html');
     }
 
     return Response.error();
@@ -24,7 +24,7 @@ workbox.routing.setCatchHandler(({event}) =>
 
 self.addEventListener('install', (event) =>
 {
-    const urls = ['/offline',];
+    const urls = ['/offline.html',];
     const cacheName = workbox.core.cacheNames.runtime;
     event.waitUntil(caches.open(cacheName).then((cache) => cache.addAll(urls)));
 });
@@ -60,86 +60,70 @@ workbox.routing.registerRoute(
 workbox.precaching.precacheAndRoute([
   {
     "url": "css/bundle.css",
-    "revision": "a3adf6e26012ff7bab27bf645c4102ca"
+    "revision": "9b1eaded2a4e2b134caeb1436399c12c"
   },
   {
     "url": "images/app_logo_144.png",
-    "revision": "6405feb070dfc858f3d77dc496423e3c"
+    "revision": "ec2351d7366b798b2000e82755cad428"
   },
   {
     "url": "images/app_logo_192.png",
-    "revision": "c8d2dd8c6d5f40a45cff0f03f3998c10"
+    "revision": "0a1039f3cbd9fd9c586fbd78c2ac613c"
   },
   {
     "url": "images/app_logo_256.png",
-    "revision": "e375618aaf585cec367b6b768bb9c522"
+    "revision": "b74f20969f27d75274694daa90e91b66"
   },
   {
     "url": "images/app_logo_384.png",
-    "revision": "21b27f3e65cad30c4196eeb51d3f968e"
+    "revision": "b5e3ba30869bb84269e77b82a5a16f2f"
   },
   {
     "url": "images/app_logo_512.png",
-    "revision": "eed7372033385cc1db6dde6e4bdb7c3a"
+    "revision": "ecbea926e014cdd1eff820f07b6ce182"
   },
   {
     "url": "images/apple-touch-icon.png",
-    "revision": "befa71df9ad3c76719c1fd043f4b73d4"
+    "revision": "5a623591e42a7ab54338f3b03e025d7a"
   },
   {
-    "url": "images/categories.jpg",
-    "revision": "57de9a3febdf7b5db9ea20f890e94dea"
-  },
-  {
-    "url": "images/monitoring.jpg",
-    "revision": "b3a6bbe7b2c3e475f03e93481659a65f"
-  },
-  {
-    "url": "images/saving.jpg",
-    "revision": "bf125eb50429b75b07744bf5dcf9b309"
-  },
-  {
-    "url": "images/tracking.jpg",
-    "revision": "d0eeb92801b725020220521d451d0729"
-  },
-  {
-    "url": "images/traffic_lights.png",
-    "revision": "e2f8c6176f36de1386bc10e86603af9a"
+    "url": "index.html",
+    "revision": "383f9b3d2981b999b5947b9f5eef85fa"
   },
   {
     "url": "js/bundle.js",
-    "revision": "6a1ef63305ea1738bf172ba73e380eef"
+    "revision": "f7fa3873e91784cc73bd47975b970a26"
   },
   {
     "url": "manifest.json",
-    "revision": "21223304590dc73fde21e7c69c9ff9cf"
+    "revision": "7685c376940a302b48f6ec897536c70b"
   },
   {
-    "url": "mix-manifest.json",
-    "revision": "8ad623ee9e8dc02aa876a386eb3d62ce"
+    "url": "offline.html",
+    "revision": "df293ceee30efad2abf7d3d350e1e697"
   },
   {
-    "url": "sw.js",
-    "revision": "62eddceeb3cfea3497b28e796d80ad28"
+    "url": "package.json",
+    "revision": "b7a00fc658cdf967fb83faa3ed075097"
   },
   {
-    "url": "vendor/telescope/app-dark.css",
-    "revision": "cc82d53d3e440d812816f63e7c041d06"
+    "url": "page.html",
+    "revision": "f2ceffe2c81f01cd6a403c95a940dd03"
   },
   {
-    "url": "vendor/telescope/app.css",
-    "revision": "c240916d61afc6dbecb1a8590f11e3ab"
+    "url": "README.md",
+    "revision": "1de8603787c0ff12aafea10dff3e4cbf"
   },
   {
-    "url": "vendor/telescope/app.js",
-    "revision": "ad63c09db53bccb4e2507a495c2095ef"
+    "url": "workbox-config-inject.js",
+    "revision": "d110085f7334389383c387775a6dcbca"
   },
   {
-    "url": "vendor/telescope/favicon.ico",
-    "revision": "a903f931a3fcbcb88c8c8ab8d5b189b8"
+    "url": "workbox-config.js",
+    "revision": "7985ff4cc849448b28913b940ece2abe"
   },
   {
-    "url": "vendor/telescope/mix-manifest.json",
-    "revision": "2157d2a5112c12084923c7543d485c9c"
+    "url": "z.html",
+    "revision": "ac30b9149a3216e0b9a6c41465c42143"
   }
 ]);
