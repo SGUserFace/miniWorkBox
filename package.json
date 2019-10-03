@@ -1,0 +1,20 @@
+{
+  "name": "miniSW",
+  "version": "1.0.0",
+  "description": "",
+  "main": "service-worker.js",
+  "scripts": {
+    "sync": "browser-sync start --server --files \"css/*.css\"\n"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SGUserFace/miniSW.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SGUserFace/miniSW/issues"
+  },
+  "homepage": "https://github.com/SGUserFace/miniSW#readme"
+}
