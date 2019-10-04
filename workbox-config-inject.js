@@ -15,7 +15,7 @@ workbox.routing.setCatchHandler(({event}) =>
 {
     if(event.request.destination === 'document')
     {
-        return caches.match('/offline.html');
+        return caches.match('https://sguserface.github.io/miniWorkBox/offline.html');
     }
 
     return Response.error();
@@ -24,7 +24,7 @@ workbox.routing.setCatchHandler(({event}) =>
 
 self.addEventListener('install', (event) =>
 {
-    const urls = ['/offline.html',];
+    const urls = ['https://sguserface.github.io/miniWorkBox/offline.html',];
     const cacheName = workbox.core.cacheNames.runtime;
     event.waitUntil(caches.open(cacheName).then((cache) => cache.addAll(urls)));
 });
